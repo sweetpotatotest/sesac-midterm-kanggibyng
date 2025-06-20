@@ -10,12 +10,34 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script type="module" src="js/main.js" defer></script>
 </head>
 
-<body >
-
-
-    <script type="module" src="js/main.js"></script>
+<body class="bg-secondary">
+    <div class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="row w-100">
+        <div class="col-md-6 col-lg-4 mx-auto">
+            <div class="card shadow p-4">
+            <h3 class="text-center mb-4">로그인</h3>
+            <form>
+                <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="email" placeholder="id">
+                <label for="email">이메일</label>
+                </div>
+                <div class="form-floating mb-4">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">비밀번호</label>
+                </div>
+                <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary" onclick="login()">로그인</button>
+                </div>
+            </form>
+            <p id="result" class="text-success text-center mt-3"></p>
+            </div>
+        </div>
+        </div>
+    </div>
+    
 </body>
 
 </html>
