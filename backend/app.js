@@ -65,37 +65,55 @@ app.use('POST /auth/login', async (req, res, next) => {
       errorMessage: "로그인 실패",
     });
   }
-  
+
 
   //토큰발급
   const newtoken = token.generateTokens(user.user_id);
   return res.status(200).send({
-    "accessToken": newtoken 
+    "accessToken": newtoken
   })
 
 
 });
 app.use('POST /todos', async (req, res, next) => {
-  const {title, description } = req.body;
+  const { title, description } = req.body;
 
-  await prisma.post.create({
-      data: {
-        title,
-        description,
-        user_id
-      }
-    })
+  await prisma.todos.create({
+    data: {
+      title,
+      description,
+      user_id
+    }
+  })
 
   return res.status(201).json({
-      "todoId": "글쓰기 완료"
-    })
+    "todoId": "글쓰기 완료"
+  })
 });
+
 app.use('GET /todos', async (req, res, next) => {
+  const todos = await prisma.todos.findMany({
+    include: {
+      users: {
+        select: {
+          email: true,
+          password: true
+        }
+      }
+    },
+    orderBy: {
+      createdAt: "desc"
+    }
+  });
 
+
+  return res.status(201).json({
+    message: "로딩 완료",
+    data: todos
+  })
 
 });
 
-app.use(errorHandling);
 
 
 app.listen(PORT, () => {
