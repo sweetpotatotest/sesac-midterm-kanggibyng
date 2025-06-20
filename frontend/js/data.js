@@ -35,5 +35,5 @@ export const todos = [
 export const users = [
   { email: "user1@example.com", password: "password123" },
   { email: "admin@example.com", password: "adminpass" },
-  { email: "guest@example.com", password: "guest" }
+  { email: "1@1", password: "1" }
 ];

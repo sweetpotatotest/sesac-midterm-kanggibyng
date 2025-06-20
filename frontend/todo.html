@@ -13,7 +13,46 @@
 </head>
 
 <body>
-    <p>11</p>
+    <div class="container">
+        <div class="d-flex mb-3">
+            <div class="me-auto p-2"><h2>할일 목록</h2></div>
+            <div class="p-2"><button type="button" class="btn btn-success">+ 할 일 추가</button></div>
+            <div class="p-2">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-primary">전체</button>
+                    <button type="button" class="btn btn-outline-primary">완료</button>
+                    <button type="button" class="btn btn-outline-primary">미완료</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id = "todoList">
+            <div class="col-sm-3 mb-3 mb-sm-5">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <span>완료</span>
+                    <div class="form-check form-switch form-check-reverse">
+                        <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+                        <label class="form-check-label" for="switchCheckReverse">상태변경</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    <script defer>
+        if(localStorage.getItem("accesskey") !== "1") {
+             alert("접근 권한이 없습니다. 로그인 해주세요.");
+             window.location.href = "index.html";
+        }
+
+    </script>
     <script type="module" src="js/main.js" defer></script>
 </body>
 
